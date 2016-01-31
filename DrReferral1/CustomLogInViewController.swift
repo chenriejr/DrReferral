@@ -7,12 +7,29 @@
 //
 
 import UIKit
+import Parse
 
 class CustomLogInViewController: UIViewController {
 
+	@IBOutlet weak var passwordTextField: UITextField!
+	@IBOutlet weak var userNameTextField: UITextField!
+	
+	
+	var activityIndicatorView = UIActivityIndicatorView(frame:CGRectMake(0,0,150,150)) as UIActivityIndicatorView
+	
+	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		let tapGesture = UITapGestureRecognizer(target: self, action: "tap:")
+		view.addGestureRecognizer(tapGesture)
 
+		self.activityIndicatorView.center = self.view.center
+		self.activityIndicatorView.hidesWhenStopped = true
+		self.activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+		
+		view.addSubview(self.activityIndicatorView)
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +37,55 @@ class CustomLogInViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	override func viewWillAppear(animated: Bool) {
+		self.navigationController?.navigationBarHidden = true
+	}
+    //Mark: - Actions
+	
+	@IBAction func logIn(sender: AnyObject) {
+		
+		let userName = self.userNameTextField.text
+		let password = self.passwordTextField.text
+		
+		if (userName?.characters.count < 5 || password?.characters.count < 5){
+			
+			let alert = UIAlertView(title: "Invalid username or password", message: "Username and password must contain at least 6 characters each", delegate: self, cancelButtonTitle: "OK")
+			
+			alert.show()
+			
+		}else{
+			
+			self.activityIndicatorView.startAnimating()
+			
+			PFUser.logInWithUsernameInBackground(userName!, password: password!, block: { (user , error ) -> Void in
+				
+				self.activityIndicatorView.stopAnimating()
+				
+				if ((user) != nil ){
+					
+					self.navigationController?.popToRootViewControllerAnimated(true)
+					
+					}else{
+					let alert = UIAlertView(title: "Ohh No", message: "Invalid name and password!", delegate: self, cancelButtonTitle: "OK")
+
+					alert.show()
+				}
+			})
+		}
+		
+	}
+	
+	@IBAction func signUp(sender: AnyObject) {
+		
+		self.performSegueWithIdentifier("signUp", sender: self)
+	}
+	
+	func tap(gesture: UITapGestureRecognizer) {
+		self.userNameTextField.resignFirstResponder()
+		self.passwordTextField.resignFirstResponder()
+	}
+}
 
     /*
     // MARK: - Navigation
@@ -32,4 +97,4 @@ class CustomLogInViewController: UIViewController {
     }
     */
 
-}
+

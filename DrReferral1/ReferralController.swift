@@ -21,7 +21,7 @@ class ReferralController: NSObject {
 	
 	
 	
-	func saveReferral ( NPI : String, referrerName : String, referrerPhone: String, referrerEmail: String, room : String,familyPhone: String, familyName : String, phone: String, location : String, firstName : String) {
+	func saveReferral ( referralImage:PFFile, NPI : String, referrerName : String, referrerPhone: String, referrerEmail: String, room : String,familyPhone: String, familyName : String, phone: String, location : String, firstName : String, comments: String) {
 		
 		
 		
@@ -31,6 +31,8 @@ class ReferralController: NSObject {
 		
 		let referral = Referral()
 		
+		referral.comments = comments
+		referral.referralImage = referralImage
 		referral.NPI = NPI
 		referral.referrerName = referrerName
 		referral.referrerPhone = referrerPhone

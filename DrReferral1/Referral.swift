@@ -23,6 +23,8 @@ class Referral : PFObject, PFSubclassing {
 	@NSManaged var phone: String?
 	@NSManaged var location : String?
 	@NSManaged var firstName : String?
+	@NSManaged var comments : String?
+	@NSManaged var referralImage : PFFile?
 	
 	
 	static func parseClassName() -> String {

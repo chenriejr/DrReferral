@@ -13,10 +13,13 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
+	@IBOutlet weak var logOutToggle: UISwitch!
 	override func viewDidLoad() {
 		super.viewDidLoad()
+			
+			
 		
-		self.navigationController?.navigationBarHidden = true
+		
 		
 		
 				
@@ -25,23 +28,42 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 	
 	override func viewWillAppear(animated: Bool) {
 		
-		self.navigationController?.navigationBarHidden = true
+		
+				self.navigationController?.navigationBarHidden = true
+		
+		if (PFUser.currentUser() == nil) {
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				
+				let viewController:CustomLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! CustomLogInViewController
+				self.navigationController!.showViewController(viewController, sender: self)
+			})
+		}
 	}
-
+	
+	@IBAction func logOut(sender: AnyObject) {
+		if (self.logOutToggle.on == false){
+			PFUser.logOut()
+			dispatch_async(dispatch_get_main_queue(), { () -> Void in
+				
+				let viewController:CustomLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! CustomLogInViewController
+				self.navigationController!.showViewController(viewController, sender: self)
+		})
+	 }
+	}
 	@IBAction func showContactUsAlert(sender: AnyObject) {
 
 		let alert = UIAlertController(title: "Contact Us", message: "Call us, email us, or visit us on our webpage.", preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
 		alert.addAction(UIAlertAction(title: "Visit our Website",
 			style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) in
-				UIApplication.sharedApplication().openURL(NSURL(string: "http://www.nah.org")!)
+				UIApplication.sharedApplication().openURL(NSURL(string: "http://www.doctorreferral.com")!)
 				return
 		}))
 		
-		alert.addAction(UIAlertAction(title: "702-426-0264",
+		alert.addAction(UIAlertAction(title: "702-576-3848",
 			style: UIAlertActionStyle.Default, handler: { (action:UIAlertAction!) in
 				
-				if let phoneCallURL:NSURL = NSURL(string: "tel://7024260264") {
+				if let phoneCallURL:NSURL = NSURL(string: "tel://7025763848") {
 					let application:UIApplication = UIApplication.sharedApplication()
 					if (application.canOpenURL(phoneCallURL)) {
 						UIApplication.sharedApplication().openURL(phoneCallURL);

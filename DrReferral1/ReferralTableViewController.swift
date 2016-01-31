@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 
-class ReferralTableViewController: UITableViewController {
+class ReferralTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 	@IBOutlet weak var lastNameTextField: UITextField!
 	@IBOutlet weak var referrerName: UILabel!
 	@IBOutlet weak var location: UILabel!
@@ -32,6 +32,10 @@ class ReferralTableViewController: UITableViewController {
 	@IBOutlet weak var NPITextField: UITextField!
 	@IBOutlet weak var referrerPhoneTextField: UITextField!
 	@IBOutlet weak var referrerEmailTextField: UITextField!
+	@IBOutlet weak var comments: UITextView!
+	@IBOutlet weak var referralImage: UIImageView!
+	
+	let imagePicker = UIImagePickerController()
 	
 	let profileNameKeyConstant = "profileNameKey"
 	let profilePhoneKeyConstant = "profilePhoneKey"
@@ -47,6 +51,7 @@ class ReferralTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		self.imagePicker.delegate = self
 		self.navigationController?.navigationBarHidden = false
 		
 		self.firstName.text = "First Name"
@@ -113,8 +118,12 @@ class ReferralTableViewController: UITableViewController {
 	}
 	
 	@IBAction func saveReferral(sender:AnyObject){
+		
+		let imageData = UIImageJPEGRepresentation(referralImage.image!,1.0 )
+		let referralImageFile = PFFile(name:"referralImage", data:imageData!)
+
 	
-	ReferralController.sharedInstance.saveReferral ( NPITextField.text!, referrerName : referrerNameTextField.text!, referrerPhone: referrerPhoneTextField.text!, referrerEmail: referrerEmailTextField.text!, room : roomTextField.text!,familyPhone: familyPhoneTextField.text!, familyName : familyNameTextField.text!, phone: familyPhoneTextField.text!, location : locationTextField.text!, firstName : firstNameTextField.text!)
+		ReferralController.sharedInstance.saveReferral (referralImageFile!, NPI : NPITextField.text!, referrerName : referrerNameTextField.text!, referrerPhone: referrerPhoneTextField.text!, referrerEmail: referrerEmailTextField.text!, room : roomTextField.text!,familyPhone: familyPhoneTextField.text!, familyName : familyNameTextField.text!, phone: familyPhoneTextField.text!, location : locationTextField.text!, firstName : firstNameTextField.text!, comments: comments.text!)
 		
 		
 		let firstName = firstNameTextField.text!
@@ -128,8 +137,9 @@ class ReferralTableViewController: UITableViewController {
 		let referrerPhone = referrerPhoneTextField.text!
 		let referrerEmail = referrerEmailTextField.text!
 		let npi = NPITextField.text!
+		let comment = comments.text!
 		
-		let referral =  "Patient Information- " + " " + "First Name: " + firstName + "  " + "Last Name: "+lastName + "  " + "Location:" + location + "  " + "Room Number: " + room + "  " + "Phone Number: "+phone + "  " + "Family Information- " + "Family Name: " + familyName + "  " + "Family Phone: " + familyPhone + "  " + "Referrer Information- " + "Referrer Name: " + referrerName + "  "  + "Referrer Phone: " + referrerPhone + "  " + "Referrer Email: " + referrerEmail + "  " + "NPI: "  +   npi
+		let referral =  "Patient Information- " + " " + "First Name: " + firstName + "  " + "Last Name: "+lastName + "  " + "Location:" + location + "  " + "Room Number: " + room + "  " + "Phone Number: "+phone + "  " + "Family Information- " + "Family Name: " + familyName + "  " + "Family Phone: " + familyPhone + "  " + "Referrer Information- " + "Referrer Name: " + referrerName + "  "  + "Referrer Phone: " + referrerPhone + "  " + "Referrer Email: " + referrerEmail + "  " + "NPI: "  +   npi + " " + "Comments:" + comment
 		
 		print(referral)
 
@@ -144,6 +154,30 @@ class ReferralTableViewController: UITableViewController {
 	}
 	}
 
+	}
+
+	@IBAction func addPhoto(sender: AnyObject) {
+		
+		imagePicker.allowsEditing = false
+		imagePicker.sourceType = .Camera
+		
+		presentViewController(imagePicker, animated: true, completion: nil)
+		
+	}
+	
+	func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+		
+		let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage
+		
+		    referralImage.contentMode = .ScaleAspectFit
+			referralImage.image = pickedImage
+			
+		dismissViewControllerAnimated(true, completion: nil)
+	}
+	
+	func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+		
+		dismissViewControllerAnimated(true, completion: nil)
 	}
 
     /*
