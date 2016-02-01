@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F77161621C47023500D83BED /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77161611C47023500D83BED /* ProfileTableViewController.swift */; };
-		F77161641C484D6B00D83BED /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77161631C484D6B00D83BED /* EmailViewController.swift */; };
+		F77161661C56C11900D83BED /* InformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77161651C56C11900D83BED /* InformationTableViewController.swift */; };
+		F77161681C57BB5400D83BED /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77161671C57BB5400D83BED /* LogInViewController.swift */; };
+		F771616A1C57DA8900D83BED /* CustomLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77161691C57DA8900D83BED /* CustomLogInViewController.swift */; };
+		F771616C1C57DA9F00D83BED /* CustomSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F771616B1C57DA9F00D83BED /* CustomSignUpViewController.swift */; };
+		F771616E1C59D55100D83BED /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F771616D1C59D55100D83BED /* ForgotPasswordViewController.swift */; };
 		F7AC40A11C28CD9500C65BC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC40A01C28CD9500C65BC7 /* AppDelegate.swift */; };
 		F7AC40A31C28CD9500C65BC7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC40A21C28CD9500C65BC7 /* ViewController.swift */; };
 		F7AC40A61C28CD9500C65BC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7AC40A41C28CD9500C65BC7 /* Main.storyboard */; };
@@ -56,7 +60,11 @@
 
 /* Begin PBXFileReference section */
 		F77161611C47023500D83BED /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewController.swift; path = ../ProfileTableViewController.swift; sourceTree = "<group>"; };
-		F77161631C484D6B00D83BED /* EmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		F77161651C56C11900D83BED /* InformationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationTableViewController.swift; path = ../InformationTableViewController.swift; sourceTree = "<group>"; };
+		F77161671C57BB5400D83BED /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		F77161691C57DA8900D83BED /* CustomLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLogInViewController.swift; sourceTree = "<group>"; };
+		F771616B1C57DA9F00D83BED /* CustomSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSignUpViewController.swift; sourceTree = "<group>"; };
+		F771616D1C59D55100D83BED /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		F7AC409D1C28CD9500C65BC7 /* DrReferral1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrReferral1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7AC40A01C28CD9500C65BC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7AC40A21C28CD9500C65BC7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -158,11 +166,15 @@
 			isa = PBXGroup;
 			children = (
 				F7AC40A41C28CD9500C65BC7 /* Main.storyboard */,
+				F771616D1C59D55100D83BED /* ForgotPasswordViewController.swift */,
+				F77161691C57DA8900D83BED /* CustomLogInViewController.swift */,
+				F771616B1C57DA9F00D83BED /* CustomSignUpViewController.swift */,
 				F7AC40A01C28CD9500C65BC7 /* AppDelegate.swift */,
 				F7AC40A21C28CD9500C65BC7 /* ViewController.swift */,
-				F77161631C484D6B00D83BED /* EmailViewController.swift */,
+				F77161651C56C11900D83BED /* InformationTableViewController.swift */,
 				F77161611C47023500D83BED /* ProfileTableViewController.swift */,
 				F7AC40CE1C28CEE500C65BC7 /* ReferralTableViewController.swift */,
+				F77161671C57BB5400D83BED /* LogInViewController.swift */,
 				F7AC40F31C29F6D300C65BC7 /* Referral.swift */,
 				F7AC40F11C29F6A300C65BC7 /* ReferralController.swift */,
 				F7AC40A71C28CD9600C65BC7 /* Assets.xcassets */,
@@ -345,11 +357,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77161621C47023500D83BED /* ProfileTableViewController.swift in Sources */,
+				F77161661C56C11900D83BED /* InformationTableViewController.swift in Sources */,
+				F771616E1C59D55100D83BED /* ForgotPasswordViewController.swift in Sources */,
+				F771616C1C57DA9F00D83BED /* CustomSignUpViewController.swift in Sources */,
 				F7AC40A31C28CD9500C65BC7 /* ViewController.swift in Sources */,
+				F771616A1C57DA8900D83BED /* CustomLogInViewController.swift in Sources */,
 				F7AC40A11C28CD9500C65BC7 /* AppDelegate.swift in Sources */,
+				F77161681C57BB5400D83BED /* LogInViewController.swift in Sources */,
 				F7AC40F21C29F6A300C65BC7 /* ReferralController.swift in Sources */,
 				F7AC40F41C29F6D300C65BC7 /* Referral.swift in Sources */,
-				F77161641C484D6B00D83BED /* EmailViewController.swift in Sources */,
 				F7AC40CF1C28CEE500C65BC7 /* ReferralTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,6 +27,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 	}
 	
 	override func viewWillAppear(animated: Bool) {
+	
 		
 		
 				self.navigationController?.navigationBarHidden = true
@@ -41,14 +42,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 	}
 	
 	@IBAction func logOut(sender: AnyObject) {
-		if (self.logOutToggle.on == false){
+		
 			PFUser.logOut()
 			dispatch_async(dispatch_get_main_queue(), { () -> Void in
 				
 				let viewController:CustomLogInViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Login") as! CustomLogInViewController
 				self.navigationController!.showViewController(viewController, sender: self)
 		})
-	 }
 	}
 	@IBAction func showContactUsAlert(sender: AnyObject) {
 

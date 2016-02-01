@@ -1,50 +1,19 @@
 //
-//  ProfileTableViewController.swift
+//  InformationTableViewController.swift
 //  DrReferral1
 //
-//  Created by Cal Henrie on 1/13/16.
+//  Created by Cal Henrie on 1/25/16.
 //  Copyright © 2016 calhenrie. All rights reserved.
 //
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
-	@IBOutlet weak var profileEmailTextField: UITextField!
-	@IBOutlet weak var profileNPITextField: UITextField!
-	@IBOutlet weak var profilePhoneTextField: UITextField!
-	@IBOutlet weak var profileNameTextField: UITextField!
-	
-	let profileNameKeyConstant = "profileNameKey"
-	let profilePhoneKeyConstant = "profilePhoneKey"
-	let profileEmailKeyConstant = "profileEmailKey"
-	let profileNpiKeyConstant = "profileNpiKey"
+class InformationTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		self.navigationController?.navigationBarHidden = false
-		
-		tableView.tableFooterView = UIView(frame: CGRect.zero)
-		
-		
-			let defaults = NSUserDefaults.standardUserDefaults()
-			if let name = defaults.stringForKey(profileNameKeyConstant)
-			{
-				profileNameTextField.text = name
-							}
-			if let phone = defaults.stringForKey(profilePhoneKeyConstant)
-			{
-				profilePhoneTextField.text = phone
-			}
-			if let email = defaults.stringForKey(profileEmailKeyConstant)
-			{
-				profileEmailTextField.text = email
-			}
-			if let npi = defaults.stringForKey(profileNpiKeyConstant)
-			{
-				profileNPITextField.text = npi
-			}
-		
 		
 
         // Uncomment the following line to preserve selection between presentations
@@ -53,18 +22,6 @@ class ProfileTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
-	@IBAction func saveProfile(sender: AnyObject) {
-		
-		let defaults = NSUserDefaults.standardUserDefaults()
-		defaults.setObject(profileNameTextField.text!, forKey: profileNameKeyConstant)
-		defaults.setObject(profilePhoneTextField.text!, forKey: profilePhoneKeyConstant)
-		defaults.setObject(profileEmailTextField.text!, forKey: profileEmailKeyConstant)
-		defaults.setObject(profileNPITextField.text!, forKey: profileNpiKeyConstant)
-		
-		self.navigationController!.popViewControllerAnimated(true)
-	}
-	
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,13 +33,13 @@ class ProfileTableViewController: UITableViewController {
 //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 1
-//   }
-
+//    }
+//
 //    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        // #warning Incomplete implementation, return the number of rows
-//        return 4
+//        return 1
 //    }
-
+//
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

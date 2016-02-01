@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "372F8E0289AC02206A25A4A9D22F24E60FD8B88D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5C4A044DE0B8EA3A83D1ADC8ACF052206A43F670" : 0,
+    "372F8E0289AC02206A25A4A9D22F24E60FD8B88D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CF7E8134-4AB1-4A64-A029-DE12835E6DF3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5C4A044DE0B8EA3A83D1ADC8ACF052206A43F670" : "",
+    "372F8E0289AC02206A25A4A9D22F24E60FD8B88D" : "DrReferral1\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DrReferral1",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DrReferral1.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/chenriejr\/DrReferral.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "372F8E0289AC02206A25A4A9D22F24E60FD8B88D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/chenriejr\/MyJournal.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5C4A044DE0B8EA3A83D1ADC8ACF052206A43F670"
+    }
+  ]
+}
